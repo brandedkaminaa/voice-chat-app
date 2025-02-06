@@ -266,7 +266,7 @@ messagesRef.on("child_added", snapshot => {
 const backgrounds = [
   {
     name: "Mountain",
-    url: "https://raw.githubusercontent.com/yourusername/repo/branch/path/to/mountain.jpg"
+    url: "https://raw.githubusercontent.com/brandedkamina/voice-chat-app/images (9).jpeg"
   },
   {
     name: "Beach",
