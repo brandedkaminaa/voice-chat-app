@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,31 +13,37 @@
   <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>
 </head>
 <body>
-  <h2>Enhanced 8-Seat Voice Chat Room</h2>
-
-<div id="authSection">
-  <!-- Registration Form -->
-  <div id="registerForm">
-    <h3>Register</h3>
-    <input type="email" id="regEmail" placeholder="Email">
-    <input type="password" id="regPassword" placeholder="Password">
-    <button id="registerBtn">Register</button>
+  <div id="topBar">
+    <h2>Enhanced 8-Seat Voice Chat Room</h2>
+    <!-- Settings Button (Three Dots) -->
+    <div id="settingsContainer">
+      <button id="settingsBtn" title="Manage Background">
+        &#x22EE;
+      </button>
+      <div id="settingsMenu" class="hidden">
+        <p>Select Background:</p>
+        <ul id="backgroundOptions">
+          <!-- Background options will be injected here -->
+          <!-- For example:
+          <li data-bg-url="https://raw.githubusercontent.com/yourusername/repo/branch/path/to/image1.jpg">Image 1</li>
+          -->
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <!-- Login Form -->
-  <div id="loginForm">
-    <h3>Login</h3>
-    <input type="email" id="loginEmail" placeholder="Email">
-    <input type="password" id="loginPassword" placeholder="Password">
-    <button id="loginBtn">Login</button>
+  <!-- Authentication Section -->
+  <div id="authSection">
+    <div id="userInfo" style="display:none;">
+      Logged in as: <span id="userEmail"></span>
+      <button id="logoutBtn">Logout</button>
+    </div>
+    <div id="loginForm">
+      <input type="email" id="email" placeholder="Email" />
+      <input type="password" id="password" placeholder="Password" />
+      <button id="loginBtn">Login</button>
+    </div>
   </div>
-
-  <!-- Logout Button -->
-  <div id="userInfo" style="display:none;">
-    Logged in as: <span id="userEmail"></span>
-    <button id="logoutBtn">Logout</button>
-  </div>
-</div>
 
   <!-- Voice Chat Seats -->
   <div id="seats">
