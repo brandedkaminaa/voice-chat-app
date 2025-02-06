@@ -1,0 +1,51 @@
+
+---
+
+### 3. `public/index.html`
+
+This HTML file provides the user interface. It displays 8 seat placeholders, a button to join the voice chat, and a simple chat interface.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>8-Seat Voice Chat Room</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Agora Web SDK -->
+  <script src="https://download.agora.io/sdk/release/AgoraRTC_N.js"></script>
+  <!-- Firebase CDN (compatibility libraries for simplicity) -->
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database-compat.js"></script>
+</head>
+<body>
+  <h2>8-Seat Voice Chat Room</h2>
+
+  <!-- Voice Chat Seats -->
+  <div id="seats">
+    <div class="seat" id="seat-1">Seat 1</div>
+    <div class="seat" id="seat-2">Seat 2</div>
+    <div class="seat" id="seat-3">Seat 3</div>
+    <div class="seat" id="seat-4">Seat 4</div>
+    <div class="seat" id="seat-5">Seat 5</div>
+    <div class="seat" id="seat-6">Seat 6</div>
+    <div class="seat" id="seat-7">Seat 7</div>
+    <div class="seat" id="seat-8">Seat 8</div>
+  </div>
+
+  <!-- Button to join the voice channel -->
+  <button id="joinBtn">Join Voice Chat</button>
+
+  <!-- Chat Section -->
+  <div id="chatSection">
+    <h3>Chat</h3>
+    <div id="chatBox"></div>
+    <input type="text" id="chatInput" placeholder="Type your message..." />
+    <button id="sendBtn">Send</button>
+  </div>
+
+  <!-- App Script -->
+  <script src="script.js"></script>
+</body>
+</html>
