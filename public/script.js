@@ -3,19 +3,20 @@
  ***********************/
 
 // Replace with your Agora App ID and (optionally) token.
-const AGORA_APP_ID = "YOUR_AGORA_APP_ID";
+const AGORA_APP_ID = "95042c63fd8f456c9b8ac1a607950b58";
 const CHANNEL_NAME = "voiceRoom";
 const AGORA_TOKEN = null; // Replace with a token if your Agora project uses one.
 
 // Replace with your Firebase configuration details.
 const firebaseConfig = {
-  apiKey: "YOUR_FIREBASE_API_KEY",
-  authDomain: "yourproject.firebaseapp.com",
-  databaseURL: "https://yourproject-default-rtdb.firebaseio.com",
-  projectId: "yourproject",
-  storageBucket: "yourproject.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_FIREBASE_APP_ID"
+  apiKey: "AIzaSyDgMOk6QEJ7x-ObkHTfoOm7NtEnn39ct5c",
+  authDomain: "voice-a72de.firebaseapp.com",
+  databaseURL: "https://voice-a72de-default-rtdb.firebaseio.com",
+  projectId: "voice-a72de",
+  storageBucket: "voice-a72de.firebasestorage.app",
+  messagingSenderId: "650150618469",
+  appId: "1:650150618469:web:caec0c92bb7e5315bd2d8c",
+  measurementId: "G-XYDFFSTQ8L"
 };
 
 /***********************
