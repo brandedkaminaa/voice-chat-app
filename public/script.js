@@ -258,3 +258,63 @@ messagesRef.on("child_added", snapshot => {
   // Auto-scroll chat box.
   chatBox.scrollTop = chatBox.scrollHeight;
 });
+/***********************
+ * Background Photo Management
+ ***********************/
+
+// Array of background photo objects
+const backgrounds = [
+  {
+    name: "Mountain",
+    url: "https://raw.githubusercontent.com/yourusername/repo/branch/path/to/mountain.jpg"
+  },
+  {
+    name: "Beach",
+    url: "https://raw.githubusercontent.com/yourusername/repo/branch/path/to/beach.jpg"
+  },
+  {
+    name: "City",
+    url: "https://raw.githubusercontent.com/yourusername/repo/branch/path/to/city.jpg"
+  }
+];
+
+// Populate the background options in the settings menu
+const backgroundOptionsList = document.getElementById("backgroundOptions");
+backgrounds.forEach(bg => {
+  const li = document.createElement("li");
+  li.textContent = bg.name;
+  li.setAttribute("data-bg-url", bg.url);
+  backgroundOptionsList.appendChild(li);
+});
+
+// Toggle the visibility of the settings menu when the settings button is clicked.
+const settingsBtn = document.getElementById("settingsBtn");
+const settingsMenu = document.getElementById("settingsMenu");
+settingsBtn.addEventListener("click", () => {
+  settingsMenu.classList.toggle("hidden");
+});
+
+// When a background option is clicked, change the page background.
+backgroundOptionsList.addEventListener("click", (event) => {
+  const target = event.target;
+  const newBgUrl = target.getAttribute("data-bg-url");
+  if (newBgUrl) {
+    document.body.style.backgroundImage = `url('${newBgUrl}')`;
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "center";
+    // Optionally, store this choice in localStorage for persistence:
+    localStorage.setItem("selectedBackground", newBgUrl);
+  }
+  // Hide the settings menu after selection
+  settingsMenu.classList.add("hidden");
+});
+
+// On page load, check if the user had previously selected a background.
+document.addEventListener("DOMContentLoaded", () => {
+  const savedBgUrl = localStorage.getItem("selectedBackground");
+  if (savedBgUrl) {
+    document.body.style.backgroundImage = `url('${savedBgUrl}')`;
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "center";
+  }
+});
