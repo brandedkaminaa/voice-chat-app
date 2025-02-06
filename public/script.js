@@ -30,34 +30,76 @@ const seatsRef = database.ref('seats'); // For seat occupancy
 /***********************
  * Firebase Authentication Setup
  ***********************/
-const auth = firebase.auth();
-const loginForm = document.getElementById("loginForm");
-const userInfo = document.getElementById("userInfo");
-const userEmailSpan = document.getElementById("userEmail");
+// References to UI elements
+const registerBtn = document.getElementById('registerBtn');
+const loginBtn = document.getElementById('loginBtn');
+const logoutBtn = document.getElementById('logoutBtn');
+const regEmail = document.getElementById('regEmail');
+const regPassword = document.getElementById('regPassword');
+const loginEmail = document.getElementById('loginEmail');
+const loginPassword = document.getElementById('loginPassword');
+const userInfo = document.getElementById('userInfo');
+const userEmailSpan = document.getElementById('userEmail');
+const registerForm = document.getElementById('registerForm');
+const loginForm = document.getElementById('loginForm');
 
-auth.onAuthStateChanged(user => {
+// Register new user
+registerBtn.addEventListener('click', () => {
+  const email = regEmail.value.trim();
+  const password = regPassword.value;
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Registration successful.
+      console.log('Registration successful:', userCredential.user);
+      regEmail.value = '';
+      regPassword.value = '';
+    })
+    .catch((error) => {
+      console.error('Registration error:', error.message);
+      alert(error.message);
+    });
+});
+
+// Log in existing user
+loginBtn.addEventListener('click', () => {
+  const email = loginEmail.value.trim();
+  const password = loginPassword.value;
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Login successful.
+      console.log('Login successful:', userCredential.user);
+      loginEmail.value = '';
+      loginPassword.value = '';
+    })
+    .catch((error) => {
+      console.error('Login error:', error.message);
+      alert(error.message);
+    });
+});
+
+// Log out user
+logoutBtn.addEventListener('click', () => {
+  firebase.auth().signOut().then(() => {
+    console.log('User signed out.');
+  }).catch((error) => {
+    console.error('Sign out error:', error.message);
+  });
+});
+
+// Listen for authentication state changes.
+firebase.auth().onAuthStateChanged(user => {
   if (user) {
-    userInfo.style.display = "block";
-    loginForm.style.display = "none";
+    // User is signed in.
+    userInfo.style.display = 'block';
+    registerForm.style.display = 'none';
+    loginForm.style.display = 'none';
     userEmailSpan.textContent = user.email;
-    // Show controls when user is logged in
-    document.getElementById("controls").style.display = "block";
   } else {
-    userInfo.style.display = "none";
-    loginForm.style.display = "block";
-    document.getElementById("controls").style.display = "none";
+    // No user is signed in.
+    userInfo.style.display = 'none';
+    registerForm.style.display = 'block';
+    loginForm.style.display = 'block';
   }
-});
-
-document.getElementById("loginBtn").addEventListener("click", () => {
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
-  auth.signInWithEmailAndPassword(email, password)
-    .catch(error => alert(error.message));
-});
-
-document.getElementById("logoutBtn").addEventListener("click", () => {
-  auth.signOut().catch(error => console.error(error));
 });
 
 /***********************
