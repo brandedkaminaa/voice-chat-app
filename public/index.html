@@ -16,18 +16,29 @@
 <body>
   <h2>Enhanced 8-Seat Voice Chat Room</h2>
 
-  <!-- Authentication Section -->
-  <div id="authSection">
-    <div id="userInfo" style="display:none;">
-      Logged in as: <span id="userEmail"></span>
-      <button id="logoutBtn">Logout</button>
-    </div>
-    <div id="loginForm">
-      <input type="email" id="email" placeholder="Email" />
-      <input type="password" id="password" placeholder="Password" />
-      <button id="loginBtn">Login</button>
-    </div>
+<div id="authSection">
+  <!-- Registration Form -->
+  <div id="registerForm">
+    <h3>Register</h3>
+    <input type="email" id="regEmail" placeholder="Email">
+    <input type="password" id="regPassword" placeholder="Password">
+    <button id="registerBtn">Register</button>
   </div>
+
+  <!-- Login Form -->
+  <div id="loginForm">
+    <h3>Login</h3>
+    <input type="email" id="loginEmail" placeholder="Email">
+    <input type="password" id="loginPassword" placeholder="Password">
+    <button id="loginBtn">Login</button>
+  </div>
+
+  <!-- Logout Button -->
+  <div id="userInfo" style="display:none;">
+    Logged in as: <span id="userEmail"></span>
+    <button id="logoutBtn">Logout</button>
+  </div>
+</div>
 
   <!-- Voice Chat Seats -->
   <div id="seats">
