@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+#seats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.seat {
+  width: 100px;
+  height: 100px;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+#chatSection {
+  margin-top: 30px;
+}
+
+#chatBox {
+  border: 1px solid #ccc;
+  height: 200px;
+  width: 100%;
+  max-width: 500px;
+  overflow-y: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+}
