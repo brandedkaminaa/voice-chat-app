@@ -1,33 +1,25 @@
-# Voice Chat App
+# Enhanced Voice Chat App
 
-This is a simple voice chat application featuring 8 seats for audio communication and a text chat powered by Firebase Realtime Database. It uses the Agora Web SDK for low-latency voice streaming.
-
-## Features
-
-- **8-Seat Voice Chat:** Join a shared channel and speak with others.
-- **Text Chat:** Send and receive messages in real time.
-- **Basic UI:** Seats are displayed as placeholders.
+This enhanced voice chat application features:
+- **8-Seat Voice Chat:** Click on a seat to join, with real-time seat occupancy managed via Firebase.
+- **Text Chat:** Real-time messaging using Firebase Realtime Database.
+- **Mute/Unmute and Leave:** Control your microphone and leave the channel when needed.
+- **User Authentication:** Sign in with email/password using Firebase Authentication (optional).
+- **Raise Hand:** Signal your wish to speak.
 
 ## Setup
 
 ### Prerequisites
-
-- [Node.js](https://nodejs.org/) (if you plan to run a local server)
-- An [Agora](https://www.agora.io/) account (to get your App ID)
-- A [Firebase](https://firebase.google.com/) project (to get your Firebase config)
+- [Node.js](https://nodejs.org/)
+- An [Agora](https://www.agora.io/) account (for your App ID)
+- A [Firebase](https://firebase.google.com/) project (for Auth, Realtime Database, and configuration)
 
 ### Configuration
-
-1. **Agora:**  
-   Replace `YOUR_AGORA_APP_ID` in `public/script.js` with your Agora App ID.  
-   If using a token for security, replace `AGORA_TOKEN` accordingly.
-
-2. **Firebase:**  
-   Replace the placeholder values in the `firebaseConfig` object (inside `public/script.js`) with your Firebase project configuration.
+1. **Agora:** Replace `YOUR_AGORA_APP_ID` and set `AGORA_TOKEN` in `public/script.js` as needed.
+2. **Firebase:** Replace the Firebase configuration placeholders in `public/script.js` with your project’s details.
 
 ### Running the Application
-
-1. Clone the repository:
+1. Clone the repository and navigate into it:
    ```bash
    git clone https://github.com/yourusername/voice-chat-app.git
    cd voice-chat-app
