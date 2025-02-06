@@ -3,6 +3,10 @@ body {
   margin: 20px;
 }
 
+#authSection {
+  margin-bottom: 20px;
+}
+
 #seats {
   display: flex;
   flex-wrap: wrap;
@@ -19,6 +23,19 @@ body {
   justify-content: center;
   border: 1px solid #ccc;
   border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.seat.occupied {
+  background-color: #d1ffd1;
+  cursor: default;
+}
+
+.seat .seatLabel {
+  position: absolute;
+  bottom: 5px;
+  font-size: 0.8em;
 }
 
 #chatSection {
