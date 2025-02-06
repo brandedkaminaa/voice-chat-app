@@ -1,0 +1,12 @@
+{
+  "name": "voice-chat-app",
+  "version": "1.0.0",
+  "description": "8-seat voice chat room with text chat using Agora and Firebase",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server public"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {}
+}
